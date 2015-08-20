@@ -37,8 +37,9 @@ public class PersonDAOImpl implements PersonDAO {
 			e.printStackTrace();
 		}
 		//Session session = this.sessionFactory.openSession(conn);
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		//sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession(conn);
+		
 		//Session session = this.sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		session.persist(p);
@@ -57,7 +58,7 @@ public class PersonDAOImpl implements PersonDAO {
 			e.printStackTrace();
 		}
 		//Session session = this.sessionFactory.openSession(conn);
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		//sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession(conn);
 		//Session session = this.sessionFactory.openSession();
 		List<Person> personList = session.createQuery("from Person").list();
