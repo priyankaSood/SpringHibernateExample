@@ -13,7 +13,8 @@ import main.java.com.journaldev.util.DBUtil;
 
 public class PersonDAOImpl implements PersonDAO {
 
-	private static SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
+	
 	/*private  SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
