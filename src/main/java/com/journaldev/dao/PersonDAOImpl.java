@@ -20,26 +20,26 @@ public class PersonDAOImpl implements PersonDAO {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-	/*private DBUtil dbUtil;
+	private DBUtil dbUtil;
 	
 	public void setDbUtil(DBUtil dbUtil) {
 		this.dbUtil = dbUtil;
 	}
-*/
+
 	@Override
 	public void save(Person p) {
 		
-		/*Connection conn = null;
+		Connection conn = null;
 		try {
 			conn = dbUtil.getConnection();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		//Session session = this.sessionFactory.openSession(conn);
-		//sessionFactory = new Configuration().configure().buildSessionFactory();
-		//Session session = sessionFactory.openSession(conn);
-		Session session = this.sessionFactory.openSession();
+		sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession(conn);
+		//Session session = this.sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		session.persist(p);
 		tx.commit();
@@ -49,17 +49,17 @@ public class PersonDAOImpl implements PersonDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Person> list() {
-		/*Connection conn = null;
+		Connection conn = null;
 		try {
 			conn = dbUtil.getConnection();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		//Session session = this.sessionFactory.openSession(conn);
-		/*sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession(conn);*/
-		Session session = this.sessionFactory.openSession();
+		sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession(conn);
+		//Session session = this.sessionFactory.openSession();
 		List<Person> personList = session.createQuery("from Person").list();
 		session.close();
 		return personList;
