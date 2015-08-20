@@ -48,7 +48,7 @@
 	</bean>
 	
 	<bean id="personDAO" class="main.java.com.journaldev.dao.PersonDAOImpl">
-		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+		<!-- <property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" /> -->
 		<property name="dbUtil" ref="dbUtil" />
 	</bean>
 	<bean id="dbUtil" class="main.java.com.journaldev.util.DBUtilImpl">
