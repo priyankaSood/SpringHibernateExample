@@ -8,9 +8,10 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
-		<property name="username" value="postgres" />
-		<property name="password" value="Infy123+" />
+		<!-- <property name="url" value="jdbc:postgresql://localhost:5432/postgres" /> -->
+		<property name="url" value="jdbc:postgres://uc9d2d248e9254a99a4effceedfbfea30:p3147bb36d90e4a50be174d1776ea2e92@192.155.243.19:5433/d17883eba32f0426996740d97d70cf67e"/>
+		<!-- <property name="username" value="postgres" />
+		<property name="password" value="Infy123+" /> -->
 	</bean>
 
 <!-- Hibernate 3 XML SessionFactory Bean definition-->
@@ -32,7 +33,7 @@
 <!-- Hibernate 3 Annotation SessionFactory Bean definition-->
 	<bean id="hibernate3AnnotatedSessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<!-- <property name="dataSource" ref="dataSource" /> -->
+		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
 				<value>main.java.com.journaldev.model.Person</value>
@@ -49,7 +50,7 @@
 	
 	<bean id="personDAO" class="main.java.com.journaldev.dao.PersonDAOImpl">
 		 <property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" /> 
-		<property name="dbUtil" ref="dbUtil" />
+		<!-- <property name="dbUtil" ref="dbUtil" /> -->
 	</bean>
 	<bean id="dbUtil" class="main.java.com.journaldev.util.DBUtilImpl">
 		
